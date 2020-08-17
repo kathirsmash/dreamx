@@ -1,6 +1,7 @@
-const mongoose = require('mongoose');
+var mongoose = require('mongoose');
+var autopopulate = require('mongoose-autopopulate');
 
-const stateSchema = mongoose.Schema({
+var stateSchema = mongoose.Schema({
     code: {
         type: String,
         required: true
@@ -19,6 +20,36 @@ const stateSchema = mongoose.Schema({
     }
 });
 
-const State = mongoose.model('state', stateSchema, 'state');
+var employeeSchema = mongoose.Schema({
+    state: {
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: 'state',
+        autopopulate: {select: '-code -status -author'}
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    phone: {
+        type: Number,
+        required: true
+    },
+    status: {
+        type: String,
+        required: true
+    },
+    author : {
+        type: mongoose.SchemaTypes.ObjectId,
+        required: true
+    }
+});
+employeeSchema.plugin(autopopulate);
 
-module.exports = { State };
+var State = mongoose.model('state', stateSchema, 'state');
+var Employee = mongoose.model('employee', employeeSchema, 'employee');
+
+module.exports = { State, Employee };

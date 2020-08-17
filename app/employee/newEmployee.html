@@ -1,0 +1,69 @@
+<div id="page-inner">
+    <!-- <div class="row">
+        <div class="col-lg-12">
+            <h2>STATE</h2>   
+        </div>
+    </div> -->
+    <div class="row">
+        <div class="col-lg-12">
+            <button ng-click="back()" class="btn btn-primary">Back</button>
+        </div>
+    </div><br>
+    <div class="row">
+        <form name="vm.empForm" ng-submit="this[buttons.method]()">
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Employee Name</label>
+                        <input type="text" class="form-control" name="name" ng-model="empObj.name" placeholder="Enter Employee Name" ng-required="true">
+                        <span ng-show="vm.submitted && vm.empForm.name.$error.required" class="text-warning"><b>This is required field</b></span>
+                    </div>
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="number" class="form-control" name="phone" ng-model="empObj.phone" placeholder="Enter Employee Phone" ng-required="true">
+                        <span ng-show="vm.submitted && vm.empForm.phone.$error.required" class="text-warning"><b>This is required field</b></span>
+                    </div>
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" name="email" ng-model="empObj.email" placeholder="Enter Employee Email" ng-required="true">
+                        <span ng-show="vm.submitted && vm.empForm.email.$error.required" class="text-warning"><b>This is required field</b></span>
+                    </div>
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label><b>State</b></label>
+                        <select class="form-control" name="state" ng-model="empObj.state" ng-required="true">
+                            <option value disabled>-- Select State --</option>
+                            <option ng-repeat="ste in states" ng-value="ste._id">{{ste.name}}</option>
+                        </select>
+                        <span ng-show="vm.submitted && vm.empForm.state.$error.required" class="text-warning"><b>This is required field</b></span>
+                    </div>
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+            <div class="row">
+                <div class="text-center">
+                    <button type="button" class="btn btn-danger" ng-click="reset()">Reset</button>
+                    <button type="submit" class="btn btn-success" ng-click="vm.submitted=true">{{buttons.title}}</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

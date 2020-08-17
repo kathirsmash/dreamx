@@ -7,6 +7,7 @@ angular.module('app', ['ui.router'])
         $stateProvider
         .state('dashboard', {url: '/', templateUrl: 'dashboard/dashboard.html', controller: 'Dashboard.Controller', controllerAs: 'vm'})
         .state('employee', {url: '/employee', templateUrl: 'employee/employee.html', controller: 'Employee.Controller', controllerAs: 'vm'})
+        .state('newEmployee', {url: '/employee/new/:id', templateUrl: 'employee/newEmployee.html', params: {id: null}, controller: 'NewEmployee.Controller', controllerAs: 'vm'})
         .state('state', {url: '/state', templateUrl: 'state/state.html', controller: 'State.Controller', controllerAs: 'vm'})
 
         $urlRouterProvider.otherwise('/');
